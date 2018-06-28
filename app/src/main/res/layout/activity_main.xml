@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jutina.quizapp.MainActivity"
+    android:background="@drawable/gradient2"
+    >
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="48dp"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:shadowColor="#e53935"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:gravity="center"
+                android:text="Traditional rulers were restricted to ceremonial rules by the local government reforms of?"
+                android:textSize="20sp"
+                android:id="@+id/text1"
+                android:textStyle="bold" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/radQue1"
+                android:layout_below="@id/text1"
+                >
+
+                <RadioButton
+                    android:id="@+id/Qu1ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="1966"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    />
+
+                <RadioButton
+                    android:id="@+id/Qu1ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="1976"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu1ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="1984"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu1ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="1987"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginRight="10dp"
+                android:text="Submit"
+                android:layout_gravity="right"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/gradient"/>
+
+            <!--Question2-->
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="What are the arms of Government"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:shadowColor="#e53935"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
+            <CheckBox
+                android:id="@+id/executive_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Executive"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:id="@+id/state"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Legislature"
+                android:textColor="#fafafa"
+                android:id="@+id/legislature"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judiciary"
+                android:id="@+id/judiciary"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="right"
+                android:id="@+id/buttonCheck"
+                android:text="Submit"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-condensed"
+                />
+            <!--Question3-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/radQue2"
+                android:layout_below="@id/button1">
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Rule of law refers to situation in which?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:shadowColor="#e53935"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
+                <RadioButton
+                    android:id="@+id/Qu2ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Lawyers are the rulers"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu2ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Laws are supreme"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu2ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="The judiciary is independent"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu2ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Parliament makes laws"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="right"
+                android:id="@+id/button2"
+                android:text="Submit"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-condensed"
+                />
+
+            <!--Question 4-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/radQue3"
+                android:layout_below="@+id/button2"
+                >
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="In what country would you find Kilimanjaro?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:shadowColor="#e53935"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
+                <RadioButton
+                    android:id="@+id/Qu3ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Iran"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu3ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Norway"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu3ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Tanzania"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu3ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Brazil"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="30dp"
+                android:text="Submit"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginRight="10dp"
+                android:id="@+id/button3"
+                android:background="@drawable/gradient"
+                />
+            <!--Question5-->
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="What month is Nigeria's independence day?"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#fafafa"
+                android:fontFamily="sans-serif-condensed"
+                android:shadowColor="#e53935"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
+            <EditText
+                android:id="@+id/name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="textMultiLine" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="30dp"
+                android:text="Submit"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginRight="10dp"
+                android:id="@+id/buttonedit"
+                android:background="@drawable/gradient"
+                />
+            <!--Question 6-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/radQue4"
+                android:layout_below="@id/button3">
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="What valley is the site of the Earth's highest-ever recorded temperature, 134F"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:shadowColor="#e53935"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
+                <RadioButton
+                    android:id="@+id/Qu4ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Sri Lanka"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu4ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Death Valley"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu4ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Balkan Valley"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu4ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Victoria Valley"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Submit"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/button4"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:background="@drawable/gradient"
+                />
+            <!--Question 7-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/radQue5"
+                android:layout_below="@id/button4">
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="What is Pakistan's longest river?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:shadowColor="#e53935"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
+                <RadioButton
+                    android:id="@+id/Qu5ch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Pakistan River"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu5ch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="River Paskist"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu5ch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Death Valley"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/Qu5ch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Indus River"
+                    android:textColor="#fafafa"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    />
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="Finish"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/gradient"/>
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffffff"
+            android:layout_alignParentTop="true"
+            >
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:text="Time:\n"
+                />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:text="Score:\n" />
+        </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
