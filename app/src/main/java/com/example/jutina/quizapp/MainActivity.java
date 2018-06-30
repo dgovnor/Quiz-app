@@ -2,16 +2,18 @@ package com.example.jutina.quizapp;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,69 +25,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        timeMachine time = new timeMachine();
-        time.countdowntimer.start();
-        submitText();
-        submitText2();
-        submitText3();
-        submitText4();
-        submitText5();
-        submitText6();
-        submitText7();
+        first_Question();
+        third_Question();
+        fourth_Qustion();
+        fifth_Question();
+        sixth_Question();
+        seventh_Question();
     }
-public class timeMachine{
-    final TextView textview = (TextView) findViewById(R.id.time);
-    CountDownTimer countdowntimer = new CountDownTimer(60 * 1000, 1000) {
-        public void onTick(long millisUntilFinished) {
-            long seconds = millisUntilFinished /1000;
-            long minutes = (seconds%360)/60;
-            seconds = seconds % 60;
-            textview.setText(String.format("Time\n" +"%02d:%02d", minutes,seconds));
-        }
-
-        public void onFinish() {
-            textview.setText("Time\n" + 0);
-            ViewDialog alert = new ViewDialog();
-            alert.showDialog(MainActivity.this, "Your time is up\n"+"Your score is: "+ scores);
-
-        }
-
-
-    };
-}
-    public void submitText(){
+    //Method for first question
+    public void first_Question(){
         final RadioGroup rg;
-        final Button buttonDisplay;
         rg = (RadioGroup) findViewById(R.id.radQue1);
-        buttonDisplay = (Button) findViewById(R.id.button1);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 //get selected radio button from radioGroup
-                int radio = rg.getCheckedRadioButtonId();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
-                //find the return value from the radio
-                RadioButton rb = (RadioButton) findViewById(radio);
-                RadioButton correctButton = (RadioButton) findViewById(R.id.Qu1ch2);
-                if(rb == correctButton){
-                    scores++;
-                    score.setText("Score:\n"+scores);
-                }
-                if(rb != null){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-    }
+            rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    //get all the radioButton
+                    RadioButton rb1=(RadioButton) findViewById(R.id.Qu1ch1);
+                    RadioButton rb2=(RadioButton) findViewById(R.id.Qu1ch2);
+                    RadioButton rb3=(RadioButton) findViewById(R.id.Qu1ch3);
+                    RadioButton rb4=(RadioButton) findViewById(R.id.Qu1ch4);
+                    //find the return value from the radio
+                    RadioButton rb = (RadioButton) findViewById(checkedId);
+                    if(rb == rb2){
+                        scores = scores + 100;
+                        Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                        rb1.setEnabled(false);
+                        rb2.setEnabled(false);
+                        rb3.setEnabled(false);
+                        rb4.setEnabled(false);
+                    }
+                    else{
+                        rb1.setEnabled(false);
+                        rb2.setEnabled(false);
+                        rb3.setEnabled(false);
+                        rb4.setEnabled(false);
+                        Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_LONG).show();
 
-    //Button code for second question
-    public void submitText2(){
-        final Button buttonDisplay;
-        buttonDisplay = (Button) findViewById(R.id.buttonCheck);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                    }
+                }
+            });
+            }
+    //Method code for second question
+    public void checkBox(View view){
+        boolean checked = ((CheckBox)view).isChecked();
                 //get the checked boxes
                 CheckBox isexecutive = (CheckBox) findViewById(R.id.executive_select);
                 CheckBox isstate = (CheckBox) findViewById(R.id.state);
@@ -96,158 +79,190 @@ public class timeMachine{
                 boolean issta = isstate.isChecked();
                 boolean isleg = isLegislature.isChecked();
                 boolean isjud = isJudiciary.isChecked();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
-                //find the return value from the radio
-
                 //check if the button selected was the right one
-                if(isexe && isjud && isleg ){
-                    scores++;
-                    score.setText("Score:\n"+scores);
+                if(isexe==checked && isjud==checked && isleg==checked ){
+                    scores = scores + 100;
+                    Toast.makeText(this, "Correct", Toast.LENGTH_LONG).show();
+                    isexecutive.setEnabled(false);
+                    isstate.setEnabled(false);
+                    isLegislature.setEnabled(false);
+                    isJudiciary.setEnabled(false);
                 }
-                //make button invisible when selected to avoid another selection
-                if(isexe || isjud || isleg || issta){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
     }
-    //Button code for second question
-    public void submitText3(){
+    //method code for second question
+    public void third_Question(){
         final RadioGroup rg;
-        final Button buttonDisplay;
         rg = (RadioGroup) findViewById(R.id.radQue2);
-        buttonDisplay = (Button) findViewById(R.id.button2);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                //get selected radio button from radioGroup
-                int radio = rg.getCheckedRadioButtonId();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //get all the radioButton
+                RadioButton rb1=(RadioButton) findViewById(R.id.Qu2ch1);
+                RadioButton rb2=(RadioButton) findViewById(R.id.Qu2ch2);
+                RadioButton rb3=(RadioButton) findViewById(R.id.Qu2ch3);
+                RadioButton rb4=(RadioButton) findViewById(R.id.Qu2ch4);
                 //find the return value from the radio
-                RadioButton rb = (RadioButton) findViewById(radio);
-                RadioButton correctButton = (RadioButton) findViewById(R.id.Qu2ch2);
+                RadioButton rb = (RadioButton) findViewById(checkedId);
                 //check if the button selected was the right one
-                if(rb == correctButton){
-                    scores++;
-                    score.setText("Score:\n"+scores);
+                if(rb == rb2){
+                    scores = scores + 100;
+                    Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
                 }
-                //make button invisible when selected to avoid another selection
-                if(rb != null){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
+                else{
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
+                    Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
-    //Button code for third question
-    public void submitText4(){
+    //Method code for fourth question
+    public void fourth_Qustion(){
         final RadioGroup rg;
-        final Button buttonDisplay;
+        //Get the radio group id
         rg = (RadioGroup) findViewById(R.id.radQue3);
-        buttonDisplay = (Button) findViewById(R.id.button3);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                //get selected radio button from radioGroup
-                int radio = rg.getCheckedRadioButtonId();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //get all the radioButton
+                RadioButton rb1=(RadioButton) findViewById(R.id.Qu3ch1);
+                RadioButton rb2=(RadioButton) findViewById(R.id.Qu3ch2);
+                RadioButton rb3=(RadioButton) findViewById(R.id.Qu3ch3);
+                RadioButton rb4=(RadioButton) findViewById(R.id.Qu3ch4);
                 //find the return value from the radio
-                RadioButton rb = (RadioButton) findViewById(radio);
-                RadioButton correctButton = (RadioButton) findViewById(R.id.Qu3ch3);
+                RadioButton rb = (RadioButton) findViewById(checkedId);
                 //check if the button selected was the right one
-                if(rb == correctButton){
-                    scores++;
-                    score.setText("Score:\n"+scores);
+                if(rb == rb3){
+                    scores = scores + 100;
+                    Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
                 }
-                //make button invisible when selected to avoid another selection
-                if(rb != null){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
+                else{
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
+                    Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
-    //button onclick for button 5
-    public void submitText5(){
-        final Button buttonDisplay;
-        buttonDisplay = (Button) findViewById(R.id.buttonedit);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //get score view
-                TextView score = (TextView) findViewById(R.id.score);
+    //Method code  for question 5
+    public void fifth_Question(){
                 //get submitted word from user
-                EditText edit = (EditText) findViewById(R.id.name_view);
-                String name = edit.getText().toString().toLowerCase();
-                if(name.equals("october")){
-                    scores++;
-                    score.setText("Score:\n"+scores);
-                }
-                if(!name.isEmpty() && name.length() > 3){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
-                }
+                final EditText edit = (EditText) findViewById(R.id.name_view);
+                edit.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        //Noting
+                    }
 
-                //update score if word is correct
-            }
-        });
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        //get editable and convert it to string and to lowercase
+                        String name = s.toString().toLowerCase();
+                        if(name.equals("october") && name.length() > 3){
+                            scores = scores+100;
+                            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                            edit.setFocusable(false);
+                        }
+                    }
+                });
     }
     //Button code for sixth question
-    public void submitText6(){
+    public void sixth_Question(){
         final RadioGroup rg;
-        final Button buttonDisplay;
         rg = (RadioGroup) findViewById(R.id.radQue4);
-        buttonDisplay = (Button) findViewById(R.id.button4);
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                //get selected radio button from radioGroup
-                int radio = rg.getCheckedRadioButtonId();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //get all the radioButton
+                RadioButton rb1=(RadioButton) findViewById(R.id.Qu4ch1);
+                RadioButton rb2=(RadioButton) findViewById(R.id.Qu4ch2);
+                RadioButton rb3=(RadioButton) findViewById(R.id.Qu4ch3);
+                RadioButton rb4=(RadioButton) findViewById(R.id.Qu4ch4);
                 //find the return value from the radio
-                RadioButton rb = (RadioButton) findViewById(radio);
-                RadioButton correctButton = (RadioButton) findViewById(R.id.Qu4ch2);
+                RadioButton rb = (RadioButton) findViewById(checkedId);
                 //check if the button selected was the right one
-                if(rb == correctButton){
-                    scores++;
-                    score.setText("Score:\n"+scores);
+                if(rb == rb2){
+                    scores = scores+100;
+                    Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
                 }
-                //make button invisible when selected to avoid another selection
-                if(rb != null){
-                    buttonDisplay.setVisibility(View.INVISIBLE);
+                else{
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
+                    Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
     //Button code for seventh question
-    public void submitText7(){
+    public void seventh_Question(){
         final RadioGroup rg;
-        final Button buttonDisplay;
         rg = (RadioGroup) findViewById(R.id.radQue5);
-        buttonDisplay = (Button) findViewById(R.id.button5);
-
-        buttonDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 //get selected radio button from radioGroup
-                int radio = rg.getCheckedRadioButtonId();
-                //get the score view and update
-                TextView score = (TextView) findViewById(R.id.score);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //get all the radioButton
+                RadioButton rb1=(RadioButton) findViewById(R.id.Qu5ch1);
+                RadioButton rb2=(RadioButton) findViewById(R.id.Qu5ch2);
+                RadioButton rb3=(RadioButton) findViewById(R.id.Qu5ch3);
+                RadioButton rb4=(RadioButton) findViewById(R.id.Qu5ch4);
                 //find the return value from the radio
-                RadioButton rb = (RadioButton) findViewById(radio);
-                RadioButton correctButton = (RadioButton) findViewById(R.id.Qu5ch4);
+                RadioButton rb = (RadioButton) findViewById(checkedId);
                 //check if the button selected was the right one
-                if(rb == correctButton){
-                    scores++;
-                    score.setText("Score:\n"+scores);
+                if(rb == rb4){
+                    scores = scores + 100;
+                    Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_LONG).show();
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
                 }
-                //dialog box for the Message
-                    ViewDialog alert = new ViewDialog();
-                    alert.showDialog(MainActivity.this, "Your score is: " + scores);
+                else{
+                    rb1.setEnabled(false);
+                    rb2.setEnabled(false);
+                    rb3.setEnabled(false);
+                    rb4.setEnabled(false);
+                    Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
+    }
+    public void submitButton(View view){
+        Toast.makeText(this, "Your score is:" + scores, Toast.LENGTH_LONG).show();
+        Handler handler;
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },1000);
     }
 }
 
